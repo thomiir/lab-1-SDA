@@ -77,6 +77,7 @@ TElem IteratorColectie::element() const {
 	// preconditii: it este iterator, it este valid
 	// postconditii: element <- elementul curent din colectie, referit de it
 	// arunca exceptie daca it este invalid
+
 	try
 		{
 		bool validIterator = valid();

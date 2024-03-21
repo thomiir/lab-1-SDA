@@ -18,7 +18,9 @@ Colectie::Colectie() {
 
 
 void Colectie::adauga(TElem elem) {
-	// 0(n)
+	// caz favorabil (elementul este pe prima pozitie): O(1)
+	// caz defavorabil (elementul nu exista in colectie): O(n)
+	// caz mediu: O(n)
 	// adaugarea unui element in Colectie
 	// preconditii: vect este Colectie, elem este TElem
 	// postconditii: vect' este Colectie, vect' = vect + {elem}
@@ -61,7 +63,8 @@ void Colectie::mareste() {
 
 
 bool Colectie::sterge(TElem elem) {
-	// 0(n)
+	// caz favorabil (elementul este pe prima pozitie si are frecventa > 1): O(1)
+	// caz defavorabil (elementul este pe prima pozitie si are frecventa == 1): O(n^2)
 	// stergerea unei aparitii a elementului elem din Colectie
 	// precondiiti: vect este Colectie, elem este TElem
 	// postconditii: vect' este Colectie, vect' = vect' - {elem}
@@ -77,10 +80,8 @@ bool Colectie::sterge(TElem elem) {
 			{
 				for (int j = i; j < currentDIM - 1; j++) 
 					vect[j] = vect[j + 1];
-
-					currentDIM--;
+				currentDIM--;
 			}
-				
 			return true;
 		}
 	return false;
@@ -88,7 +89,9 @@ bool Colectie::sterge(TElem elem) {
 
 
 bool Colectie::cauta(TElem elem) const {
-	// 0(n)
+	// caz favorabil (elementul este pe prima pozitie): O(1)
+	// caz defavorabil (elementul nu se afla in colectie): O(n)
+	// caz mediu: O(n)
 	// cautarea elementului elem in Colectie
 	// preconditii: vect este Colectie, elem este TElem
 	// postconditii: cauta <- true, daca elem apare in Colectie
@@ -101,7 +104,9 @@ bool Colectie::cauta(TElem elem) const {
 
 
 int Colectie::nrAparitii(TElem elem) const {
-	// 0(n)
+	// caz favorabil (elementul este pe prima pozitie): O(1)
+	// caz defavorabil (elementul nu se afla in colectie): O(n)
+	// caz mediu: O(n)
 	// returnarea frecventei elementului elem in Colectie
 	// preconditii: vect este Colectie, elem este TElem
 	// postconditii: nrAparitii <- numarul de aparitii al lui elem in Colectie
